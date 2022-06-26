@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-size: 20px;
+      font-family: 'Cardo', serif;
+      background-color: #484d5c;
+      color: rgb(255 206 0);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    Prompt Generator for OpenAI's DALL-E 2 (beta)
+
+    <p style="font-size:80%;">The owners/creators of this software product are not affiliated with OpenAI.  This software is open source (<a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2 License</a>).</p>
+  </div>
+
+  <div>
+    <button id="go-button">Generate Prompts</button>
+
+    <p id="demo-0"></p>
+    <p id="demo-1"></p>
+    <p id="demo-2"></p>
+    <p id="demo-3"></p>
+    <p id="demo-4"></p>
+    <p id="demo-5"></p>
+    <p id="demo-6"></p>
+    <p id="demo-7"></p>
+    <p id="demo-8"></p>
+    <p id="demo-9"></p>
+  </div>
+
+
+
+  <script>
+
+    document.getElementById("go-button").onclick = function () {
+      go();
+    };
+
+    // This gets called once per generation.
+    function go() {
+      let template = "#content#, #img-type#, #img-mod#";
+      for (var i = 0; i < 10; i++) {
+        setContent("demo-" + i, capitalizeFirstLetter(resolve(template)));
+      }
+    }
+    // This gets called once for each prompt generated.
+    function resolve(template) {
+      var ret = template;
+      var arr = template.match(/(#[a-z\-]*#)/gi);// arr is an array of all params in the template.
+      for (var item in arr) {
+        var options = getArrayByParam(arr[item]);
+        var input = resolve(getRandoFromArray(options)); // Recursive call to resolve embedded templates.
+        // replace the param in the template.
+        ret = ret.replace(arr[item], input);
+      }
+      return ret;
+    }
+    function setContent(container, result) {
+      document.getElementById(container).innerHTML = result;
+    }
+    function getRandoFromArray(arr) {
+      var item = arr[Math.floor(Math.random() * arr.length)];
+      return item;
+    }
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    function getArrayByParam(param) {
+      //console.log(param);
+      switch (param) {
+        case "#content#":
+          return ["#humanoid# #human-mod# in #setting#", "#holdable# #obj-mod# in #setting#"];
+        case "#img-type#":
+          return ["Realistic photograph", "Realistic painting", "Painting by #painter#", "Selfie", "Pixel Art", "Portrait", "Cover of #magazine#", "On the television show #show#", "In the movie #movie#", "Detailed scientific diagram", "Movie Poster", "Victorian Newspaper article", "Cinematic shot", "Digital art", "35mm photograph", "Baroque painting", "Adverisement", "Comic-style art", "Book cover", "Early 1900s newspaper", "Renaissance painting", "Sculpture", "Grafitti art", "Burnt in toast", "Crayon art by 5 year old", "watercolors by 5 year old", "1960s Cartoon", "Cyberpunk digital art", "Sonogram", "Go pro footage", "Oil painting", "Sketch", "Neoclassical painting"];
+        case "#img-mod#":
+          return ["Hyperrealistic", "Closeup", "Award winning", "Vintage", "4K HD", "Highly Detailed"];
+        case "#food#":
+          return ["a bowl of cereal", "hot wings", "a banana", "cake", "pizza", "a hamburger", "french fries", "a plate of nachos", "onion rings", "pudding"];
+        case "#color#":
+          return ["red", "orange", "yellow", "green", "blue", "purple", "silver", "black", "brown", "white", "grey", "gold", "teal", "magenta", "indigo"];
+        case "#setting#":
+          return ["the pouring rain", "a space station on Mars", "a desert", "a plain", "a tundra", "a wetland", "a mountainside scene", "a beach scene", "a rock concert", "a bustling modern city", "an alley", "a boat on a river", "a forest", "a jungle", "a winter wonderland", "Ancient Egypt", "Ancient Rome", "a zoo", "a McDonalds's", "space"];
+        case "#humanoid#":
+          return ["a robot", "a gorilla", "#profession#", "an elf", "a hobbit", "a sloth", "an alien"];
+        case "#human-mod#":
+          return ["with #color# hair eating #food#", "dressed as #profession# holding #holdable#", "with #color# hair holding #holdable#",
+            "dressed as #profession# riding #rideable#", "holding #holdable#", "holding #holdable# and eating #food#", "driving #driveable#",
+            "eating #food#", "riding #rideable#"];
+        case "#critter#":
+          return ["a mouse", "a bird", "a squirrel", "a cat", "a fish", "a tiny horse", "a huge bumblebee"];
+        case "#driveable#":
+          return ["a school bus", "a car", "a truck", "a motorcycle", "a lawnmower", "a garbage truck", "a snowmobile", "a lamborghini", "a tesla", "a motor scooter"];
+        case "#rideable#":
+          return ["a bicycle", "a horse", "#humanoid#", "#critter#"];
+        case "#profession#":
+          return ["a doctor", "a scientist", "the pope", "an astronaut", "a medieval knight", "a lawyer", "a CEO", "a samurai", "a paramedic", "a construction worker", "a shaman"];
+        case "#painter#":
+          return ["Vincent van Gogh", "Leonardo Da Vinci", "Rembrandt", "Pablo Picasso", "Andy Warhol", "Gustav Klimt", "Salvador Dali", "Claude Monet", "H.R. Giger"];
+        case "#magazine#":
+          return ["Time", "Vogue", "GQ", "National Geographic", "Rolling Stone", "MAD", "Cosmopolitan"];
+        case "#show#":
+          return ["The 6 o'clock news", "Simpsons", "Sopranos", "Baywatch", "Southpark", "The X Files", "Seinfeld", "The Office", "Law & Order", "The Brady Bunch", "Friends", "The Fresh Prince of Bel-Air", "Sesame Street"];
+        case "#movie#":
+          return ["The Godfather", "Indiana Jones", "Saving Private Ryan", "Lord of the Rings", "Star Wars", "Terminator", "The Wizard of Oz", "Jurassic Park", "Gone with the Wind", "Rocky"];
+        case "#holdable#":
+          return ["a flower", "#food#", "a fork", "a knife", "a pencil", "a boombox", "a wedding ring", "a camera", "a phone"];
+        case "#obj-mod#":
+          return ["covered in dust", "sitting on top of #holdable#", "melting", "standing upright", "giving off light", "", "", "", ""];
+      }
+    }
+
+  </script>
+
+</body>
+</html>
