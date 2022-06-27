@@ -52,7 +52,7 @@
 
     // This gets called once per generation.
     function go() {
-      let template = "#content#, #img-type#, #img-mod#";
+      let template = "#content#, #img-type##img-mod#";
       for (var i = 0; i < 10; i++) {
         setContent("demo-" + i, capitalizeFirstLetter(resolve(template)));
       }
@@ -92,7 +92,7 @@
             "Grafitti art", "Burnt in toast", "Crayon art by 5 year old", "watercolors by 5 year old", "1960s Cartoon", "Cyberpunk digital art", "Sonogram", "Go pro footage", "Oil painting",
             "Sketch", "Neoclassical painting"];
         case "#img-mod#":
-          return ["Hyperrealistic", "Closeup", "Award winning", "Vintage", "4K HD", "Highly Detailed"];
+          return [", Hyperrealistic", ", Closeup", ", Award winning", ", Vintage", ", 4K HD", ", Highly Detailed", "", "", "", "", "", "", "", "", "", "", ""];
         case "#food#":
           return ["a bowl of cereal", "hot wings", "cake", "pizza", "a hamburger", "french fries", "a plate of nachos", "onion rings", "pudding", "#veggie#", "#veggie#", "#veggie#",
             "#veggie#", "#fruit#", "#fruit#", "#fruit#", "#fruit#", "#fruit#", "#fruit#"];
