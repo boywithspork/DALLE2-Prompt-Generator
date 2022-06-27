@@ -85,41 +85,65 @@
         case "#content#":
           return ["#humanoid# #human-mod# in #setting#", "#holdable# #obj-mod# in #setting#"];
         case "#img-type#":
-          return ["Realistic photograph", "Realistic painting", "Painting by #painter#", "Selfie", "Pixel Art", "Portrait", "Cover of #magazine#", "On the television show #show#", "In the movie #movie#", "Detailed scientific diagram", "Movie Poster", "Victorian Newspaper article", "Cinematic shot", "Digital art", "35mm photograph", "Baroque painting", "Advertisement", "Comic-style art", "Book cover", "Early 1900s newspaper", "Renaissance painting", "Sculpture", "Grafitti art", "Burnt in toast", "Crayon art by 5 year old", "watercolors by 5 year old", "1960s Cartoon", "Cyberpunk digital art", "Sonogram", "Go pro footage", "Oil painting", "Sketch", "Neoclassical painting"];
+          return ["Realistic photograph", "Realistic painting", "Painting by #painter#", "Painting by #painter#", "Painting by #painter#", "Painting by #painter#", "Painting by #painter#",
+            "Selfie", "Pixel Art", "Portrait", "Cover of #magazine#", "Cover of #magazine#", "Cover of #magazine#", "On the television show #show#", "On the television show #show#",
+            "On the television show #show#", "In the movie #movie#", "In the movie #movie#", "In the movie #movie#", "Detailed scientific diagram", "Movie Poster", "Victorian Newspaper article",
+            "Cinematic shot", "Digital art", "35mm photograph", "Baroque painting", "Advertisement", "Comic-style art", "Book cover", "Early 1900s newspaper", "Renaissance painting", "Sculpture",
+            "Grafitti art", "Burnt in toast", "Crayon art by 5 year old", "watercolors by 5 year old", "1960s Cartoon", "Cyberpunk digital art", "Sonogram", "Go pro footage", "Oil painting",
+            "Sketch", "Neoclassical painting"];
         case "#img-mod#":
           return ["Hyperrealistic", "Closeup", "Award winning", "Vintage", "4K HD", "Highly Detailed"];
         case "#food#":
-          return ["a bowl of cereal", "hot wings", "a banana", "cake", "pizza", "a hamburger", "french fries", "a plate of nachos", "onion rings", "pudding"];
+          return ["a bowl of cereal", "hot wings", "cake", "pizza", "a hamburger", "french fries", "a plate of nachos", "onion rings", "pudding", "#veggie#", "#veggie#", "#veggie#",
+            "#veggie#", "#fruit#", "#fruit#", "#fruit#", "#fruit#", "#fruit#", "#fruit#"];
         case "#color#":
           return ["red", "orange", "yellow", "green", "blue", "purple", "silver", "black", "brown", "white", "grey", "gold", "teal", "magenta", "indigo"];
         case "#setting#":
-          return ["the pouring rain", "a space station on Mars", "a desert", "a plain", "a tundra", "a wetland", "a mountainside scene", "a beach scene", "a rock concert", "a bustling modern city", "an alley", "a boat on a river", "a forest", "a jungle", "a winter wonderland", "Ancient Egypt", "Ancient Rome", "a zoo", "a McDonalds's", "space"];
+          return ["the pouring rain", "a space station on Mars", "a desert", "a plain", "a tundra", "a wetland", "a mountainside scene", "a beach scene", "a rock concert",
+            "a bustling modern city", "an alley", "a boat on a river", "a forest", "a jungle", "a winter wonderland", "Ancient Egypt", "Ancient Rome", "a zoo", "a McDonalds's", "space",
+            "a museum", "a bus stop", "a school", "a cafeteria", "a concert hall", "a playground", "a bathroom"];
         case "#humanoid#":
-          return ["a robot", "a gorilla", "#profession#", "an elf", "a hobbit", "a sloth", "an alien"];
+          return ["a robot", "a gorilla", "#profession#", "an elf", "a hobbit", "a sloth", "an alien", "Winnie the Pooh", "Darth Vader", "Cthulhu", "A giant squid", "SpongeBob SquarePants",
+            "Gandalf the Grey", "a goblin", "Batman", "Cleopatra", "Superman"];
         case "#human-mod#":
           return ["with #color# hair eating #food#", "dressed as #profession# holding #holdable#", "with #color# hair holding #holdable#",
             "dressed as #profession# riding #rideable#", "holding #holdable#", "holding #holdable# and eating #food#", "driving #driveable#",
-            "eating #food#", "riding #rideable#"];
+            "eating #food#", "riding #rideable#", "with #color# hair planting #plantable#", "holding #holdable# planting #plantable#", "dressed as #profession# planting #plantable#"];
         case "#critter#":
-          return ["a mouse", "a bird", "a squirrel", "a cat", "a fish", "a tiny horse", "a huge bumblebee"];
+          return ["a mouse", "a bird", "a squirrel", "a cat", "a fish", "a tiny horse", "a huge bumblebee", "a sloth", "a hamster", "a lizard", "a spider", "a scorpion", "a beetle", "a centipede"];
         case "#driveable#":
-          return ["a school bus", "a car", "a truck", "a motorcycle", "a lawnmower", "a garbage truck", "a snowmobile", "a lamborghini", "a tesla", "a motor scooter"];
+          return ["a school bus", "a car", "a truck", "a motorcycle", "a lawnmower", "a garbage truck", "a snowmobile", "a lamborghini", "a tesla", "a motor scooter", "a cadillac",
+            "a forklift", "a clown car", "a dump truck"];
         case "#rideable#":
-          return ["a bicycle", "a horse", "#humanoid#", "#critter#"];
+          return ["a bicycle", "a horse", "#humanoid#", "#critter#", "#critter#", "#critter#", "a hang glider", "a boat", "an osterich", "a dolphin", "a pterodactyl", "a velociraptor", "a train",
+          "a goat", "a giraffe", "a camel"];
         case "#profession#":
-          return ["a doctor", "a scientist", "the pope", "an astronaut", "a medieval knight", "a lawyer", "a CEO", "a samurai", "a paramedic", "a construction worker", "a shaman"];
+          return ["a doctor", "a scientist", "the pope", "an astronaut", "a medieval knight", "a lawyer", "a CEO", "a samurai", "a paramedic", "a construction worker", "a shaman",
+            "a firefighter", "a mailman", "an electrician", "a chef", "a merchanic", "a pharmacist", "a fortune teller", "an engineer", "a butcher", "a policeman"];
         case "#painter#":
           return ["Vincent van Gogh", "Leonardo Da Vinci", "Rembrandt", "Pablo Picasso", "Andy Warhol", "Gustav Klimt", "Salvador Dali", "Claude Monet", "H.R. Giger"];
         case "#magazine#":
           return ["Time", "Vogue", "GQ", "National Geographic", "Rolling Stone", "MAD", "Cosmopolitan"];
         case "#show#":
-          return ["The 6 o'clock news", "Simpsons", "Sopranos", "Baywatch", "Southpark", "The X Files", "Seinfeld", "The Office", "Law & Order", "The Brady Bunch", "Friends", "The Fresh Prince of Bel-Air", "Sesame Street"];
+          return ["The 6 o'clock news", "Simpsons", "Sopranos", "Baywatch", "Southpark", "The X Files", "Seinfeld", "The Office", "Law & Order", "The Brady Bunch", "Friends",
+            "The Fresh Prince of Bel-Air", "Sesame Street"];
         case "#movie#":
           return ["The Godfather", "Indiana Jones", "Saving Private Ryan", "Lord of the Rings", "Star Wars", "Terminator", "The Wizard of Oz", "Jurassic Park", "Gone with the Wind", "Rocky"];
         case "#holdable#":
-          return ["a flower", "#food#", "a fork", "a knife", "a pencil", "a boombox", "a wedding ring", "a camera", "a phone"];
+          return ["a cigarette", "a bag of marbles", "a candybar", "a crystal ball", "#plantable#", "#plantable#", "a fork", "a knife", "a pencil", "a boombox", "a wedding ring",
+            "a camera", "a phone", "a compass", "#food#", "#food#", "#food#", "#food#", "#food#", "#food#", "#critter#", "#critter#", "#critter#", "#critter#", "#drinkable#",
+            "#drinkable#", "#drinkable#", "#drinkable#"];
         case "#obj-mod#":
-          return ["covered in dust", "sitting on top of #holdable#", "melting", "standing upright", "giving off light", "", "", "", ""];
+          return ["covered in dust", "sitting on top of #holdable#", "sitting on top of #holdable#", "melting", "standing upright", "giving off light", "reflecting the surroundings",
+            "being sucked into a blackhole", "slowly disappearing", "on fire"];
+        case "#fruit#":
+          return ["an apple", "a banana", "a pear", "grapes", "an orange", "a lemon", "a lime", "a watermelon", "a tangerine", "cantaloupe", "blueberries", "raspberries", "cherries"];
+        case "#veggie#":
+          return ["broccoli", "peas", "asparagus", "a potato", "onions", "squash", "cucumbers", "cauliflower", "corn", "carrots", "lima beans", "okra", "avocados"]
+        case "#drinkable#":
+          return ["a bottle of water", "a jug of milk", "a glass of orange juice", "a mug of beer", "a flask of whiskey", "a jug of moonshine", "a cup of coffee", "a cup of tea", "a glass of wine"];
+        case "#plantable#":
+          return ["#fruit#", "#fruit#", "#fruit#", "#fruit#", "#fruit#", "#veggie#", "#veggie#", "#veggie#", "#veggie#", "flowers", "trees", "bushes", "seeds", "a cactus", "lush foliage"];
       }
     }
 
